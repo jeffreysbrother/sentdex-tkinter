@@ -15,7 +15,7 @@ class BLM(tk.Tk):
 
         self.frames = {}
 
-        for F in (StartPage, PageOne):
+        for F in (StartPage, PageOne, PageTwo):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -43,6 +43,10 @@ class StartPage(tk.Frame):
                             command=lambda: controller.show_frame(PageOne))
         button1.pack()
 
+        button2 = tk.Button(self, text="Visit Page Two",
+                            command=lambda: controller.show_frame(PageTwo))
+        button2.pack()
+
 
 # a new page
 class PageOne(tk.Frame):
@@ -55,6 +59,26 @@ class PageOne(tk.Frame):
         button1 = tk.Button(self, text="Back to Home",
                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
+
+        button2 = tk.Button(self, text="Page Two",
+                            command=lambda: controller.show_frame(PageTwo))
+        button2.pack()
+
+# another page
+class PageTwo(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="PAIGE TWO", font=LARGE_FONT)
+        label.pack(pady=10, padx=10)
+
+        button1 = tk.Button(self, text="Back to Home",
+                            command=lambda: controller.show_frame(StartPage))
+        button1.pack()
+
+        button2 = tk.Button(self, text="Page One",
+                            command=lambda: controller.show_frame(PageOne))
+        button2.pack()
 
 
 
