@@ -1,5 +1,7 @@
 import Tkinter as tk
 
+LARGE_FONT = ("Verdana", 12)
+
 class BLM(tk.Tk):
 
     def __init__(self, *args, **kwargs):
@@ -18,3 +20,24 @@ class BLM(tk.Tk):
         self.frames[StartPage] = frame
         
         frame.grid(row=0, column=0, sticky="nsew")
+
+        self.show_frame(StartPage)
+
+    def show_frame(self, cont):
+        frame = self.frames[cont]
+        frame.tkraise()
+
+
+
+class StartPage(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="the rise and fall of british empiricism", font=LARGE_FONT)
+
+        label.pack(pady=10, padx=10)
+
+
+
+app = BLM()
+app.mainloop()
