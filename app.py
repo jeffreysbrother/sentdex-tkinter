@@ -11,6 +11,7 @@ class BLM(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 
         # tk.Tk.iconbitmap(self, default="favicon.ico")
+        tk.Tk.wm_title(self, "doxastico voluntarismo")
 
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
