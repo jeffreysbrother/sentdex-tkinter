@@ -28,14 +28,21 @@ class BLM(tk.Tk):
         frame.tkraise()
 
 
+def qf(param):
+    print(param)
+
+
 
 class StartPage(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         label = tk.Label(self, text="the rise and fall of british empiricism", font=LARGE_FONT)
-
         label.pack(pady=10, padx=10)
+
+        button1 = tk.Button(self, text="Visit Page 1",
+                            command=lambda:qf("weener"))
+        button1.pack()
 
 
 
