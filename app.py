@@ -2,6 +2,8 @@ import Tkinter as tk
 
 LARGE_FONT = ("Verdana", 12)
 
+
+
 class BLM(tk.Tk):
 
     def __init__(self, *args, **kwargs):
@@ -48,6 +50,7 @@ class StartPage(tk.Frame):
         button2.pack()
 
 
+
 # a new page
 class PageOne(tk.Frame):
 
@@ -63,6 +66,8 @@ class PageOne(tk.Frame):
         button2 = tk.Button(self, text="Page Two",
                             command=lambda: controller.show_frame(PageTwo))
         button2.pack()
+
+
 
 # another page
 class PageTwo(tk.Frame):
