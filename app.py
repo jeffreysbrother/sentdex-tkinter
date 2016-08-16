@@ -1,4 +1,5 @@
 import Tkinter as tk
+import ttk
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -41,11 +42,12 @@ class StartPage(tk.Frame):
         label = tk.Label(self, text="the rise and fall of british empiricism", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
-        button1 = tk.Button(self, text="Visit Page 1",
+        # if ttk is imported, then we can use ttk.Button instead of tk.Button
+        button1 = ttk.Button(self, text="Visit Page 1",
                             command=lambda: controller.show_frame(PageOne))
         button1.pack()
 
-        button2 = tk.Button(self, text="Visit Page Two",
+        button2 = ttk.Button(self, text="Visit Page Two",
                             command=lambda: controller.show_frame(PageTwo))
         button2.pack()
 
@@ -59,11 +61,11 @@ class PageOne(tk.Frame):
         label = tk.Label(self, text="blah blah blah", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
-        button1 = tk.Button(self, text="Back to Home",
+        button1 = ttk.Button(self, text="Back to Home",
                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
-        button2 = tk.Button(self, text="Page Two",
+        button2 = ttk.Button(self, text="Page Two",
                             command=lambda: controller.show_frame(PageTwo))
         button2.pack()
 
@@ -77,11 +79,11 @@ class PageTwo(tk.Frame):
         label = tk.Label(self, text="PAIGE TWO", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
-        button1 = tk.Button(self, text="Back to Home",
+        button1 = ttk.Button(self, text="Back to Home",
                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
-        button2 = tk.Button(self, text="Page One",
+        button2 = ttk.Button(self, text="Page One",
                             command=lambda: controller.show_frame(PageOne))
         button2.pack()
 
