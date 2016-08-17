@@ -8,7 +8,7 @@ import matplotlib.animation as animation
 import Tkinter as tk
 import ttk
 
-import urllib
+import urllib2
 import json
 
 import pandas as pd
@@ -19,18 +19,28 @@ LARGE_FONT = ("Verdana", 12)
 f = Figure(figsize=(5,5), dpi=100)
 a = f.add_subplot(111)
 
+
 def animate(i):
-    pullData = open("sampleData.txt", "r").read()
-    dataList = pullData.split('\n')
-    xList = []
-    yList = []
-    for eachLine in dataList:
-        if len(eachLine) > 1:
-            x, y = eachLine.split(',')
-            xList.append(int(x))
-            yList.append(int(y))
+    dataLink = 'https://btc-e.com/api/3/trades/btc_usd?limit=2000'
+    # data = urllib.request.urlopen(datalink)
+    data = urllib2.urlopen(dataLink).read()
+    data = data.decode("utf-8")
+    data = json.loads(data)
+    data = data["btc_usd"]
+    data = pd.DataFrame(data)
+
+    buys = data[(data['type']=="bid")]
+    buys["datestamp"] = np.array(buys["timestamp"]).astype("datetime64[s]")
+    buyDates = (buys["datestamp"]).tolist()
+
+    sells = data[(data['type']=="ask")]
+    sells["datestamp"] = np.array(sells["timestamp"]).astype("datetime64[s]")
+    sellDates = (sells["datestamp"]).tolist()
+
     a.clear()
-    a.plot(xList, yList)
+
+    a.plot_date(buyDates, buys["price"])
+    a.plot_date(sellDates, sells["price"])
         
 
 
