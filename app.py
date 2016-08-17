@@ -42,6 +42,9 @@ def animate(i):
     a.plot_date(buyDates, buys["price"], "g", label="buys")
     a.plot_date(sellDates, sells["price"], "r", label="sells")
 
+    a.legend(bbox_to_anchor=(0, 1.02, 1, .102), loc=3,
+        ncol=2, borderaxespad=0)
+
     title = "BTC-e BTCUSD Prices"
     a.set_title(title)
         
