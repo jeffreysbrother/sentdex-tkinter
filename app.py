@@ -49,7 +49,7 @@ class BLM(tk.Tk):
 
         self.frames = {}
 
-        for F in (StartPage, PageOne, BTCe_Page):
+        for F in (StartPage, BTCe_Page):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -85,24 +85,17 @@ class StartPage(tk.Frame):
 
 
 # a new page
-class PageOne(tk.Frame):
+# class PageOne(tk.Frame):
 
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="blah blah blah", font=LARGE_FONT)
-        label.pack(pady=10, padx=10)
+#     def __init__(self, parent, controller):
+#         tk.Frame.__init__(self, parent)
+#         label = tk.Label(self, text="blah blah blah", font=LARGE_FONT)
+#         label.pack(pady=10, padx=10)
 
-        button1 = ttk.Button(self, text="Back to Home",
-                            command=lambda: controller.show_frame(StartPage))
-        button1.pack()
+#         button1 = ttk.Button(self, text="Back to Home",
+#                             command=lambda: controller.show_frame(StartPage))
+#         button1.pack()
 
-        # button2 = ttk.Button(self, text="Page Two",
-        #                     command=lambda: controller.show_frame(PageTwo))
-        # button2.pack()
-
-        # button3 = ttk.Button(self, text="Visit Page Three",
-        #                     command=lambda: controller.show_frame(PageThree))
-        # button3.pack()
 
 
 
@@ -140,9 +133,9 @@ class BTCe_Page(tk.Frame):
                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
-        button2 = ttk.Button(self, text="Page One",
-                            command=lambda: controller.show_frame(PageOne))
-        button2.pack()
+        # button2 = ttk.Button(self, text="Page One",
+        #                     command=lambda: controller.show_frame(PageOne))
+        # button2.pack()
 
         # button2 = ttk.Button(self, text="Page Two",
         #                     command=lambda: controller.show_frame(PageTwo))
