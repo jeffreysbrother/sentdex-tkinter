@@ -10,6 +10,9 @@ import ttk
 
 LARGE_FONT = ("Verdana", 12)
 
+f = Figure(figsize=(5,5), dpi=100)
+a = f.add_subplot(111)
+
 def animate(i):
     pullData = open("sampleData.txt", "r").read()
     dataList = pullData.split('\n')
@@ -20,6 +23,8 @@ def animate(i):
             x, y = eachLine.split(',')
             xList.append(int(x))
             yList.append(int(y))
+    a.clear()
+    a.plot(xList, yList)
         
 
 
@@ -141,10 +146,6 @@ class PageThree(tk.Frame):
                             command=lambda: controller.show_frame(PageTwo))
         button2.pack()
 
-        f = Figure(figsize=(5,5), dpi=100)
-        a = f.add_subplot(111)
-        a.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
-
         canvas = FigureCanvasTkAgg(f, self)
         canvas.show()
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
@@ -156,4 +157,5 @@ class PageThree(tk.Frame):
 
 
 app = BLM()
+ani = animation.FuncAnimation(f, animate, interval=1000)
 app.mainloop()
