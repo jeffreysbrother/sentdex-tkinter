@@ -49,7 +49,7 @@ class BLM(tk.Tk):
 
         self.frames = {}
 
-        for F in (StartPage, PageOne, PageTwo, PageThree):
+        for F in (StartPage, PageOne, BTCe_Page):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -70,21 +70,17 @@ class StartPage(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="the rise and fall of british empiricism", font=LARGE_FONT)
+        label = tk.Label(self, text="Hey", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
         # if ttk is imported, then we can use ttk.Button instead of tk.Button
-        button1 = ttk.Button(self, text="Visit Page 1",
-                            command=lambda: controller.show_frame(PageOne))
+        button1 = ttk.Button(self, text="Agree",
+                            command=lambda: controller.show_frame(BTCe_Page))
         button1.pack()
 
-        button2 = ttk.Button(self, text="Visit Page Two",
-                            command=lambda: controller.show_frame(PageTwo))
+        button2 = ttk.Button(self, text="Disagree",
+                            command=quit)
         button2.pack()
-
-        button3 = ttk.Button(self, text="Visit Page Three",
-                            command=lambda: controller.show_frame(PageThree))
-        button3.pack()
 
 
 
@@ -100,40 +96,40 @@ class PageOne(tk.Frame):
                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
-        button2 = ttk.Button(self, text="Page Two",
-                            command=lambda: controller.show_frame(PageTwo))
-        button2.pack()
+        # button2 = ttk.Button(self, text="Page Two",
+        #                     command=lambda: controller.show_frame(PageTwo))
+        # button2.pack()
 
-        button3 = ttk.Button(self, text="Visit Page Three",
-                            command=lambda: controller.show_frame(PageThree))
-        button3.pack()
-
-
-
-# another page
-class PageTwo(tk.Frame):
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="PAIGE TWO", font=LARGE_FONT)
-        label.pack(pady=10, padx=10)
-
-        button1 = ttk.Button(self, text="Back to Home",
-                            command=lambda: controller.show_frame(StartPage))
-        button1.pack()
-
-        button2 = ttk.Button(self, text="Page One",
-                            command=lambda: controller.show_frame(PageOne))
-        button2.pack()
-
-        button3 = ttk.Button(self, text="Visit Page Three",
-                            command=lambda: controller.show_frame(PageThree))
-        button3.pack()
+        # button3 = ttk.Button(self, text="Visit Page Three",
+        #                     command=lambda: controller.show_frame(PageThree))
+        # button3.pack()
 
 
 
 # another page
-class PageThree(tk.Frame):
+# class PageTwo(tk.Frame):
+
+#     def __init__(self, parent, controller):
+#         tk.Frame.__init__(self, parent)
+#         label = tk.Label(self, text="PAIGE TWO", font=LARGE_FONT)
+#         label.pack(pady=10, padx=10)
+
+#         button1 = ttk.Button(self, text="Back to Home",
+#                             command=lambda: controller.show_frame(StartPage))
+#         button1.pack()
+
+#         button2 = ttk.Button(self, text="Page One",
+#                             command=lambda: controller.show_frame(PageOne))
+#         button2.pack()
+
+#         button3 = ttk.Button(self, text="Visit Page Three",
+#                             command=lambda: controller.show_frame(PageThree))
+#         button3.pack()
+
+
+
+# another page
+class BTCe_Page(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -148,9 +144,9 @@ class PageThree(tk.Frame):
                             command=lambda: controller.show_frame(PageOne))
         button2.pack()
 
-        button2 = ttk.Button(self, text="Page Two",
-                            command=lambda: controller.show_frame(PageTwo))
-        button2.pack()
+        # button2 = ttk.Button(self, text="Page Two",
+        #                     command=lambda: controller.show_frame(PageTwo))
+        # button2.pack()
 
         canvas = FigureCanvasTkAgg(f, self)
         canvas.show()
