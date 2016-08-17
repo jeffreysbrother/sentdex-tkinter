@@ -16,7 +16,7 @@ import numpy as np
 
 LARGE_FONT = ("Verdana", 12)
 
-f = Figure(figsize=(5,5), dpi=100)
+f = Figure(figsize=(10,6), dpi=100)
 a = f.add_subplot(111)
 
 
