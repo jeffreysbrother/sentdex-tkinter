@@ -14,9 +14,11 @@ import json
 import pandas as pd
 import numpy as np
 
+from matplotlib import pyplot as plt
+
 LARGE_FONT = ("Verdana", 12)
 
-f = Figure(figsize=(10,6), dpi=100)
+f = Figure()
 a = f.add_subplot(111)
 
 
@@ -138,5 +140,6 @@ class BTCe_Page(tk.Frame):
 
 
 app = BLM()
+app.geometry("1280x720")
 ani = animation.FuncAnimation(f, animate, interval=1000)
 app.mainloop()
