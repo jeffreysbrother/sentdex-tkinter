@@ -8,6 +8,12 @@ import matplotlib.animation as animation
 import Tkinter as tk
 import ttk
 
+import urllib
+import json
+
+import pandas as pd
+import numpy as np
+
 LARGE_FONT = ("Verdana", 12)
 
 f = Figure(figsize=(5,5), dpi=100)
