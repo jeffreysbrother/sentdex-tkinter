@@ -3,12 +3,24 @@ matplotlib.use("TkAgg")
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
+import matplotlib.animation as animation
 
 import Tkinter as tk
 import ttk
 
 LARGE_FONT = ("Verdana", 12)
 
+def animate(i):
+    pullData = open("sampleData.txt", "r").read()
+    dataList = pullData.split('\n')
+    xList = []
+    yList = []
+    for eachLine in dataList:
+        if len(eachLine) > 1:
+            x, y = eachLine.split(',')
+            xList.append(int(x))
+            yList.append(int(y))
+        
 
 
 class BLM(tk.Tk):
@@ -136,6 +148,10 @@ class PageThree(tk.Frame):
         canvas = FigureCanvasTkAgg(f, self)
         canvas.show()
         canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+
+        toolbar = NavigationToolbar2TkAgg(canvas, self)
+        toolbar.update()
+        canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 
 
