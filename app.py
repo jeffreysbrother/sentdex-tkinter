@@ -65,6 +65,15 @@ class BLM(tk.Tk):
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
+        menubar = tk.Menu(container)
+        filemenu = tk.Menu(menubar, tearoff=0)
+        filemenu.add_command(label="Save settings", command=lambda: popupmsg("Not supported yet"))
+        filemenu.add_separator()
+        filemenu.add_command(label="Exit", command=quit)
+        menubar.add_cascade(label="File", menu=filemenu)
+
+        tk.Tk.config(self, menu=menubar)
+
         self.frames = {}
 
         for F in (StartPage, BTCe_Page):
@@ -141,5 +150,5 @@ class BTCe_Page(tk.Frame):
 
 app = BLM()
 app.geometry("1280x720")
-ani = animation.FuncAnimation(f, animate, interval=1000)
+ani = animation.FuncAnimation(f, animate, interval=5000)
 app.mainloop()
