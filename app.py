@@ -116,28 +116,6 @@ class StartPage(tk.Frame):
 
 
 # another page
-# class PageTwo(tk.Frame):
-
-#     def __init__(self, parent, controller):
-#         tk.Frame.__init__(self, parent)
-#         label = tk.Label(self, text="PAIGE TWO", font=LARGE_FONT)
-#         label.pack(pady=10, padx=10)
-
-#         button1 = ttk.Button(self, text="Back to Home",
-#                             command=lambda: controller.show_frame(StartPage))
-#         button1.pack()
-
-#         button2 = ttk.Button(self, text="Page One",
-#                             command=lambda: controller.show_frame(PageOne))
-#         button2.pack()
-
-#         button3 = ttk.Button(self, text="Visit Page Three",
-#                             command=lambda: controller.show_frame(PageThree))
-#         button3.pack()
-
-
-
-# another page
 class BTCe_Page(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -148,14 +126,6 @@ class BTCe_Page(tk.Frame):
         button1 = ttk.Button(self, text="Back to Home",
                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
-
-        # button2 = ttk.Button(self, text="Page One",
-        #                     command=lambda: controller.show_frame(PageOne))
-        # button2.pack()
-
-        # button2 = ttk.Button(self, text="Page Two",
-        #                     command=lambda: controller.show_frame(PageTwo))
-        # button2.pack()
 
         canvas = FigureCanvasTkAgg(f, self)
         canvas.show()
