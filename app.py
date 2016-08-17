@@ -39,8 +39,11 @@ def animate(i):
 
     a.clear()
 
-    a.plot_date(buyDates, buys["price"])
-    a.plot_date(sellDates, sells["price"])
+    a.plot_date(buyDates, buys["price"], "g", label="buys")
+    a.plot_date(sellDates, sells["price"], "r", label="sells")
+
+    title = "BTC-e BTCUSD Prices"
+    a.set_title(title)
         
 
 
