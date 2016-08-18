@@ -23,6 +23,19 @@ SMALL_FONT = ("Verdana", 0)
 f = Figure()
 a = f.add_subplot(111)
 
+def popupmsg(msg):
+    popup = tk.Tk()
+
+    def leavemini():
+        popup.destroy()
+    
+    popup.wm_title("!")
+    label = ttk.Label(popup, text=msg, font=NORM_FONT)
+    label.pack(side="top", fill="x", pady=10)
+    B1 = ttk.Button(popup, text="Okay", command=leavemini)
+    B1.pack()
+    popup.mainloop()
+
 
 def animate(i):
     dataLink = 'https://btc-e.com/api/3/trades/btc_usd?limit=2000'
