@@ -54,7 +54,7 @@ def animate(i):
     a.plot_date(sellDates, sells["price"], "#183A54", label="sells")
 
     a.legend(bbox_to_anchor=(0, 1.02, 1, .102), loc=3,
-        ncol=2, borderaxespad=0)
+             ncol=2, borderaxespad=0)
 
     title = "BTC-e BTCUSD Prices\nLastPrice: " + str(data["price"][1999])
     a.set_title(title)
@@ -80,6 +80,17 @@ class BLM(tk.Tk):
         filemenu.add_separator()
         filemenu.add_command(label="Exit", command=quit)
         menubar.add_cascade(label="File", menu=filemenu)
+
+        exchangeChoice = tk.Menu(menubar, tearoff=1)
+        exchangeChoice.add_command(label="BTC-e",
+                                     command=lambda: changeExchange("BTC-e","btce"))
+        exchangeChoice.add_command(label="Bitfinex",
+                                     command=lambda: changeExchange("Bitfinex","bitfinex"))
+        exchangeChoice.add_command(label="Bitstamp",
+                                     command=lambda: changeExchange("Bitstamp","bitstamp"))
+        exchangeChoice.add_command(label="Huobi",
+                                     command=lambda: changeExchange("Huobi","huobi"))
+
 
         tk.Tk.config(self, menu=menubar)
 
