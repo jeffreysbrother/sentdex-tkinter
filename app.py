@@ -17,6 +17,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 LARGE_FONT = ("Verdana", 12)
+NORM_FONT = ("Verdana", 10)
+SMALL_FONT = ("Verdana", 0)
 
 f = Figure()
 a = f.add_subplot(111)
