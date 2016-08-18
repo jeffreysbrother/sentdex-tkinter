@@ -4,16 +4,12 @@ matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 import matplotlib.animation as animation
-
 import Tkinter as tk
 import ttk
-
 import urllib2
 import json
-
 import pandas as pd
 import numpy as np
-
 from matplotlib import pyplot as plt
 
 LARGE_FONT = ("Verdana", 12)
@@ -22,6 +18,7 @@ SMALL_FONT = ("Verdana", 0)
 
 f = Figure()
 a = f.add_subplot(111)
+
 
 def popupmsg(msg):
     popup = tk.Tk()
