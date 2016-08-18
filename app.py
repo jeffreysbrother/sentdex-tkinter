@@ -104,6 +104,8 @@ class BLM(tk.Tk):
         exchangeChoice.add_command(label="Huobi",
                                      command=lambda: changeExchange("Huobi","huobi"))
 
+        menubar.add_cascade(label="Exchange", menu=exchangeChoice)
+
 
         tk.Tk.config(self, menu=menubar)
 
