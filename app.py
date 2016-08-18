@@ -19,6 +19,19 @@ SMALL_FONT = ("Verdana", 0)
 f = Figure()
 a = f.add_subplot(111)
 
+exchange = "BTC-e"
+DatCounter = 9000
+programName = "btce"
+
+def changeExchange(toWhat, pn):
+    global exchange
+    global DatCounter
+    global programName
+
+    exchange = toWhat
+    programName = pn
+    DatCounter = 9000
+
 
 def popupmsg(msg):
     popup = tk.Tk()
